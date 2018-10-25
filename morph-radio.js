@@ -1,4 +1,5 @@
 import {html, LitElement} from '@polymer/lit-element/lit-element.js';
+import { Radio } from '@material/mwc-radio';
 
 /**
  * `morph-radio`
@@ -9,7 +10,7 @@ import {html, LitElement} from '@polymer/lit-element/lit-element.js';
  * @extends HTMLElement
  * @demo demo/index.html
  */
-class MorphRadio extends LitElement {
+class MorphRadio extends Radio {
   /**
     * Instance of the element is created/upgraded. Useful for initializing
     * state, set up event listeners, create shadow dom.
@@ -17,26 +18,26 @@ class MorphRadio extends LitElement {
     */
   constructor() {
     super();
-  
-    this.prop1 = 'morph-radio';
-    this.loop = 2;
   }
 
-  render() {
-    return html`
-      <style>
-        :host {
-          display: block;
-        }
-      </style>
-      <h2>Hello ${this.prop1} ${this.loop}!</h2>
-    `;
-  }
+  // render() {
+  //   return html`
+  //     <div class="mdc-radio" .ripple="${ripple()}">
+  //       <input class="mdc-radio__native-control" type="radio" name="${this.name}" .checked="${this.checked}" .value="${this.value}"
+  //         @change="${this._changeHandler}" 
+  //         @focus="${this._focusHandler}" 
+  //         @click="${this._clickHandler}"
+  //       >
+  //       <div class="mdc-radio__background">
+  //         <div class="mdc-radio__outer-circle"></div>
+  //         <div class="mdc-radio__inner-circle"></div>
+  //       </div>
+  //     </div>
+  //   `;
+  // }
 
   static get properties() {
     return {
-      loop: Number,
-      prop1: String
     };
   }
 }

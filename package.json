@@ -8,6 +8,7 @@
   },
   "license": "Apache-2.0",
   "dependencies": {
+    "@material/mwc-radio": "^0.3.1",
     "@polymer/lit-element": "^0.6.2"
   },
   "devDependencies": {
