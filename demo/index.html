@@ -12,6 +12,7 @@
       import '@polymer/iron-demo-helpers/demo-pages-shared-styles';
       import '@polymer/iron-demo-helpers/demo-snippet';
       import { Radio } from '@material/mwc-radio/mwc-radio.js';
+      // import { morphIconIos } from 'src/images/ios-radio-icon.js';
       import { Formfield } from "@material/mwc-formfield"
     </script>
 
@@ -27,10 +28,10 @@
         <template>
           <div>
             <mwc-formfield label="Yes">
-              <morph-radio id="mine" name="one" value="IOS"></morph-radio>
+              <morph-radio id="mine" name="one" checked></morph-radio>
             </mwc-formfield>
             <mwc-formfield label="No">
-              <morph-radio label="hello" name="one" value="Android"></morph-radio>
+              <morph-radio name="one"></morph-radio>
             </mwc-formfield>
           </div>
 

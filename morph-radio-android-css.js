@@ -1,6 +1,6 @@
 import { html } from '@polymer/lit-element';
 
-export const morphStyle = html`
+export const morphRadioAndroidStyle = html`
   <style>
     @keyframes mdc-ripple-fg-radius-in {
       from {
