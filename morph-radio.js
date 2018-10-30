@@ -1,6 +1,6 @@
 import {html, LitElement} from '@polymer/lit-element/lit-element.js';
 import { Radio } from '@material/mwc-radio/mwc-radio.js';
-import { style } from '@material/mwc-radio/mwc-radio-css.js';
+// import { style } from '@material/mwc-radio/mwc-radio-css.js';
 import { ripple } from '@material/mwc-ripple/ripple-directive.js';
 import { morphRadioAndroidStyle } from './morph-radio-android-css.js';
 import { morphRadioIosStyle } from './morph-radio-ios-css.js';
