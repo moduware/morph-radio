@@ -12,39 +12,91 @@
     <script type="module" src="../morph-radio.js"></script>
   </head>
   <body>
+    <!-- <script type="module">
+      import { Formfield } from "@material/mwc-formfield";      
+    </script> -->
 
     <test-fixture id="BasicTestFixture">
       <template>
-        <morph-radio></morph-radio>
+        <morph-radio id="1" name="one"></morph-radio>
       </template>
     </test-fixture>
 
     <test-fixture id="ChangedPropertyTestFixture">
       <template>
-        <morph-radio prop1="new-prop1"></morph-radio>
+        <mwc-formfield label="Yes">
+          <morph-radio platform="android" id="1" name="two"></morph-radio>
+        </mwc-formfield>
+        <mwc-formfield label="No">
+          <morph-radio platform="android" id="2" name="two"></morph-radio>
+        </mwc-formfield>
       </template>
     </test-fixture>
 
     <script type="module">
-      suite('morph-radio', () => {
+      describe('morph-radio', () => {
+        
+        context('Basic markup test', () => {
+          let radioElement;
 
-        test('instantiating the element with default properties works', () => {
-          const element = fixture('BasicTestFixture');
-          assert.equal(element.prop1, 'morph-radio');
-          const elementShadowRoot = element.shadowRoot;
-          const elementHeader = elementShadowRoot.querySelector('h2');
-          assert.equal(elementHeader.innerHTML, 'Hello morph-radio!');
+          beforeEach(function () {
+            radioElement = fixture('BasicTestFixture');
+          });
+
+          it('should have correct name when name is set in html markup', () => {
+            expect(radioElement.name).to.equal('one');
+          });
         });
 
-        test('setting a property on the element works', () => {
-          // Create a test fixture
-          const element = fixture('ChangedPropertyTestFixture');
-          assert.equal(element.prop1, 'new-prop1');
-          const elementShadowRoot = element.shadowRoot;
-          const elementHeader = elementShadowRoot.querySelector('h2');
-          assert.equal(elementHeader.innerHTML, 'Hello new-prop1!');
+        context('Correctly select radio buttons when clicked', () => {
+          let radioElement;
+
+          beforeEach(function () {
+            radioElement = fixture('BasicTestFixture');
+          });
+
+          it('should have property "check" when set on html markup', (done) => {
+            flush(function () {
+              radioElement.click();
+              expect(radioElement.checked).to.be.true;
+              done();
+            });
+          });
         });
 
+        context('Correctly select radio buttons when clicked', () => {
+          let radioElement, groupRadio, firstRadioElement, secondRadioElement;
+
+          beforeEach(function () {
+            groupRadio = fixture('ChangedPropertyTestFixture');
+            firstRadioElement = groupRadio[0].querySelector('morph-radio');
+            secondRadioElement = groupRadio[1].querySelector('morph-radio');
+          });
+
+          it('should have property "checked" when element is clicked', (done) => {
+            flush(function () {
+              expect(firstRadioElement.checked).to.be.false;
+              firstRadioElement.click();
+              expect(firstRadioElement.checked).to.be.true;
+              done();
+            });
+          });
+
+          it('should update checked property when another radio in same group is clicked', (done) => {
+            flush(function () {
+              expect(firstRadioElement.checked).to.be.false;
+              firstRadioElement.click();
+              expect(firstRadioElement.checked).to.be.true;
+              secondRadioElement.click();
+              expect(firstRadioElement.checked).to.be.false;
+              expect(secondRadioElement.checked).to.be.true;
+              done();
+            });
+          });
+
+
+
+        });  
       });
     </script>
 

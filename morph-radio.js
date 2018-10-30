@@ -4,7 +4,7 @@ import { style } from '@material/mwc-radio/mwc-radio-css.js';
 import { ripple } from '@material/mwc-ripple/ripple-directive.js';
 import { morphRadioAndroidStyle } from './morph-radio-android-css.js';
 import { morphRadioIosStyle } from './morph-radio-ios-css.js';
-// import '../src/images/ios-checkmark.svg';
+
 
 /**
  * `morph-radio`
