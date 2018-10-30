@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes">
+
+    <title>morph-radio test</title>
+
+    <script src="../node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js"></script>
+    <script src="../node_modules/wct-browser-legacy/browser.js"></script>
+
+    <script type="module" src="../morph-radio.js"></script>
+  </head>
+  <body>
+    <!-- <script type="module">
+      import { Formfield } from "@material/mwc-formfield";      
+    </script> -->
+
+    <test-fixture id="BasicTestFixture">
+      <template>
+        <morph-radio id="1" name="one"></morph-radio>
+      </template>
+    </test-fixture>
+
+    <test-fixture id="ChangedPropertyTestFixture">
+      <template>
+        <mwc-formfield label="Yes">
+          <morph-radio platform="android" id="1" name="two"></morph-radio>
+        </mwc-formfield>
+        <mwc-formfield label="No">
+          <morph-radio platform="android" id="2" name="two"></morph-radio>
+        </mwc-formfield>
+      </template>
+    </test-fixture>
+
+    <script type="module">
+      describe('morph-radio', () => {
+        
+        context('Basic markup test', () => {
+          let radioElement;
+
+          beforeEach(function () {
+            radioElement = fixture('BasicTestFixture');
+          });
+
+          it('should have correct name when name is set in html markup', () => {
+            expect(radioElement.name).to.equal('one');
+          });
+        });
+
+        context('Correctly select radio buttons when clicked', () => {
+          let radioElement;
+
+          beforeEach(function () {
+            radioElement = fixture('BasicTestFixture');
+          });
+
+          it('should have property "check" when set on html markup', (done) => {
+            flush(function () {
+              radioElement.click();
+              expect(radioElement.checked).to.be.true;
+              done();
+            });
+          });
+        });
+
+        context('Correctly select radio buttons when clicked', () => {
+          let radioElement, groupRadio, firstRadioElement, secondRadioElement;
+
+          beforeEach(function () {
+            groupRadio = fixture('ChangedPropertyTestFixture');
+            firstRadioElement = groupRadio[0].querySelector('morph-radio');
+            secondRadioElement = groupRadio[1].querySelector('morph-radio');
+          });
+
+          it('should have property "checked" when element is clicked', (done) => {
+            flush(function () {
+              expect(firstRadioElement.checked).to.be.false;
+              firstRadioElement.click();
+              expect(firstRadioElement.checked).to.be.true;
+              done();
+            });
+          });
+
+          it('should update checked property when another radio in same group is clicked', (done) => {
+            flush(function () {
+              expect(firstRadioElement.checked).to.be.false;
+              firstRadioElement.click();
+              expect(firstRadioElement.checked).to.be.true;
+              secondRadioElement.click();
+              expect(firstRadioElement.checked).to.be.false;
+              expect(secondRadioElement.checked).to.be.true;
+              done();
+            });
+          });
+
+
+
+        });  
+      });
+    </script>
+
+  </body>
+</html>

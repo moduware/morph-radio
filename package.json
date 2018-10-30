@@ -1,0 +1,21 @@
+{
+  "name": "morph-radio",
+  "description": "A radio button that looks native on IOS or Android platform and devices",
+  "main": "morph-radio.js",
+  "scripts": {
+    "start": "polymer serve --npm --module-resolution=node",
+    "test": "wct"
+  },
+  "license": "Apache-2.0",
+  "dependencies": {
+    "@material/mwc-formfield": "^0.3.1",
+    "@material/mwc-radio": "^0.3.1",
+    "@moduware/morph-element": "^1.0.0",
+    "@polymer/lit-element": "^0.6.2"
+  },
+  "devDependencies": {
+    "@polymer/iron-demo-helpers": "^3.0.0-pre.19",
+    "@webcomponents/webcomponentsjs": "^2.0.0",
+    "wct-browser-legacy": "^1.0.0"
+  }
+}

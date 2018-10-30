@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes">
+
+    <title>morph-radio demo</title>
+
+    <script src="../node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js"></script>
+
+    <script type="module">
+      import '@polymer/iron-demo-helpers/demo-pages-shared-styles';
+      import '@polymer/iron-demo-helpers/demo-snippet';
+      import { Radio } from '@material/mwc-radio/mwc-radio.js';
+      // import { morphIconIos } from 'src/images/ios-radio-icon.js';
+      import { Formfield } from "@material/mwc-formfield"
+    </script>
+
+    <script type="module" src="../morph-radio.js"></script>
+
+    <custom-style>
+    </custom-style>
+  </head>
+  <body>
+    <div class="vertical-section-container centered">
+      <h3>Basic morph-radio demo</h3>
+      <demo-snippet>
+        <template>
+          <div>
+            <mwc-formfield label="Yes">
+              <morph-radio id="mine" name="one" checked></morph-radio>
+            </mwc-formfield>
+            <mwc-formfield label="No">
+              <morph-radio name="one"></morph-radio>
+            </mwc-formfield>
+
+            <br>
+
+            <mwc-formfield label="Yes">
+              <morph-radio id="mine" name="two" checked></morph-radio>
+            </mwc-formfield>
+            <mwc-formfield label="No">
+              <morph-radio name="two"></morph-radio>
+            </mwc-formfield>
+
+            <br>
+            
+            <morph-radio name="three"></morph-radio>
+            <morph-radio name="three" checked></morph-radio>
+          </div>
+
+        </template>
+      </demo-snippet>
+    </div>
+  </body>
+</html>
