@@ -1,4 +1,4 @@
-import { html } from '@polymer/lit-element';
+import { html } from 'lit-element';
 
 export const morphRadioAndroidStyle = html`
   <style>
@@ -298,7 +298,9 @@ export const morphRadioAndroidStyle = html`
       outline: none
     }
     :host {
-      /* background-color: #d63547; */
+			/* background-color: #d63547; */
+			/* background-color: #d63547; */
+      --mdc-theme-secondary: #d02e3d;
     }
     div.mdc-radio div.mdc-radio__outer-circle {
       /* border-color: red; */
