@@ -1,5 +1,6 @@
 {
-  "name": "morph-radio",
+	"name": "@moduware/morph-radio",
+	"version": "1.0.0",
   "description": "A radio button that looks native on IOS or Android platform and devices",
   "main": "morph-radio.js",
   "scripts": {
